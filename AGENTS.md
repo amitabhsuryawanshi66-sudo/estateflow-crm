@@ -20,11 +20,24 @@ EstateFlow CRM is a production-style Next.js and Supabase CRM. Preserve producti
 
 - Use an installed skill whenever the prompt explicitly names it.
 - If a named skill does not load automatically, read `.agents/skills/<skill-name>/SKILL.md` and apply its methodology.
-- When `tdd` is named, prefer behavior-focused test-driven development using small vertical red-green-refactor cycles.
-- When `grill-me` is named, pressure-test the plan or design by resolving one decision at a time and provide a recommended answer for each question.
-- When `improve-codebase-architecture` is named, use its domain-informed architecture review and refactoring methodology.
-- Other installed skills, including `to-issues`, `zoom-out`, `handoff`, and `diagnose`, should follow their own `SKILL.md` instructions when named.
+- Do not merely claim that a skill was used. In the requested report, name the specific `SKILL.md` methodology applied and what it changed.
+- Use `tdd` for behavior-focused implementation and verification tasks, following small vertical red-green-refactor cycles.
+- Use `grill-me` when important decisions remain unresolved. Resolve one blocking question at a time and provide a recommended answer.
+- Use `diagnose` for reproduced failures, bugs, and debugging work.
+- Use `to-prd` and `to-issues` only when explicitly asked to convert an established plan or conversation into a PRD or implementation issues.
+- Use `triage` for issue categorization, specification readiness, and workflow state changes, not for implementing the issue.
+- Use `zoom-out` before changing an unfamiliar subsystem so the work is grounded in its broader architecture and domain context.
+- Use `improve-codebase-architecture` at explicit architecture checkpoints after meaningful code exists.
+- Use `handoff` when another agent or future session needs a compact context transfer.
+- Use `prototype` only for throwaway experiments used to explore behavior, state, or interface options before production implementation.
 - Do not edit `.agents/skills/` during normal application work. Skill maintenance must be an explicitly requested task.
+
+### Skill support docs
+
+- Issues and PRDs are tracked in this repository's GitHub Issues. See `docs/agents/issue-tracker.md`.
+- Triage uses the five canonical label roles documented in `docs/agents/triage-labels.md`.
+- This is a single-context repository with lazy root-level domain docs and ADRs. See `docs/agents/domain.md`.
+- Do not search for, read, or depend on `CONDUCTOR.md`.
 
 ## Dependency and secret safety
 
