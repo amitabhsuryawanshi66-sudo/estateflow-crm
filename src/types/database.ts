@@ -1086,9 +1086,35 @@ export type Database = {
     }
     Views: Record<string, never>
     Functions: {
+      accept_pending_invite: {
+        Args: {
+          p_full_name: string
+          p_phone?: string | null
+          p_token: string
+        }
+        Returns: {
+          organization_id: string
+          profile_id: string
+        }[]
+      }
+      create_initial_organization: {
+        Args: {
+          p_full_name: string
+          p_org_name: string
+          p_phone?: string | null
+        }
+        Returns: {
+          organization_id: string
+          profile_id: string
+        }[]
+      }
       get_round_robin_agent: {
         Args: { p_org_id: string }
         Returns: string | null
+      }
+      hash_invite_token: {
+        Args: { p_token: string }
+        Returns: string
       }
     }
     Enums: Record<string, never>
